@@ -1,0 +1,28 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: fastapi
+  namespace: default
+spec:
+  hosts:
+    - "*"
+
+  gateways:
+    - fastapi-gateway
+
+  http:
+    - match:
+        - uri:
+            regex: "^/api(/|$)(.*)"
+
+      rewrite:
+        uriRegexRewrite:
+          match: "^/api(/|$)(.*)"
+          rewrite: '/\2'
+
+      route:
+        - destination:
+            host: python-api.default.svc.cluster.local
+
+            port:
+              number: 80
