@@ -1,5 +1,4 @@
 fastapi
 uvicorn
 redis
-
-
+prometheus-client==0.26.0
