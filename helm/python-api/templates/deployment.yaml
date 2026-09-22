@@ -8,6 +8,16 @@ metadata:
 
 spec:
   replicas: {{ .Values.replicaCount }}
+  revisionHistoryLimit: {{ .Values.rollout.revisionHistoryLimit }}
+  minReadySeconds: {{ .Values.rollout.minReadySeconds }}
+
+  strategy:
+    type: {{ .Values.rollout.strategy.type }}
+    {{- if eq .Values.rollout.strategy.type "RollingUpdate" }}
+    rollingUpdate:
+      maxUnavailable: {{ .Values.rollout.strategy.rollingUpdate.maxUnavailable }}
+      maxSurge: {{ .Values.rollout.strategy.rollingUpdate.maxSurge }}
+    {{- end }}
 
   selector:
     matchLabels:
