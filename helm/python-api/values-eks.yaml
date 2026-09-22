@@ -1,9 +1,10 @@
 replicaCount: 1
 
 image:
-  tag: latest
+  tag: ci-7-b14a41a
   pullPolicy: Always
 
+  repository: 617791431348.dkr.ecr.us-east-1.amazonaws.com/redis-fastapi
 service:
   type: ClusterIP
   port: 80
