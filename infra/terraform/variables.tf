@@ -27,3 +27,9 @@ variable "kubernetes_version" {
   type        = string
   default     = "1.36"
 }
+
+variable "enable_paid_aws_resources" {
+  description = "Safety switch. Must be true before creating paid AWS resources such as NAT Gateway or EKS."
+  type        = bool
+  default     = false
+}
