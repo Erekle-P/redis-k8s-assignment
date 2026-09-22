@@ -33,3 +33,7 @@ output "eks_oidc_provider_arn" {
 output "eks_managed_node_groups" {
   value = module.eks.eks_managed_node_groups
 }
+
+output "ecr_repository_url" {
+  value = aws_ecr_repository.python_api.repository_url
+}
