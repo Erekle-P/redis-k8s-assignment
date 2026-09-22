@@ -32,3 +32,12 @@ ingress:
   className: nginx
   host: localhost
   path: /api(/|$)(.*)
+
+rollout:
+  revisionHistoryLimit: 5
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
