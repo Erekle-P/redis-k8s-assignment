@@ -25,7 +25,8 @@ Thumbs.db
 .terraform/
 *.tfstate
 *.tfstate.*
-.terraform.lock.hcl
+*.tfvars
+!*.tfvars.example
 
 # Temporary files
 *.tmp
